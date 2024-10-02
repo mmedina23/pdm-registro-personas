@@ -1,7 +1,8 @@
 
 package com.recordar.registropersonas;
 
-import com.recordar.registropersonas.controller.RegistroController;
+import com.recordar.registropersonas.dao.ConexionBBDD;
+import java.sql.Connection;
 
 /**
  *
@@ -10,8 +11,12 @@ import com.recordar.registropersonas.controller.RegistroController;
 public class RegistroPersonas {
 
     public static void main(String[] args) {
-        RegistroController controller =  new RegistroController();
-       
-        System.out.println("Hello World!");
+//        RegistroController controller =  new RegistroController();
+       try (Connection connection = ConexionBBDD.getConnection()) {
+           System.out.println("Hello World! "+ connection.isClosed());
+           
+       } catch(Exception e) {
+           System.out.println("hubo un error");
+       }        
     }
 }
