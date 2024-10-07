@@ -1,4 +1,3 @@
-
 package com.recordar.registropersonas;
 
 import com.recordar.registropersonas.dao.ConexionBBDD;
@@ -11,12 +10,16 @@ import java.sql.Connection;
 public class RegistroPersonas {
 
     public static void main(String[] args) {
-//        RegistroController controller =  new RegistroController();
-       try (Connection connection = ConexionBBDD.getConnection()) {
-           System.out.println("Hello World! "+ connection.isClosed());
+        //        RegistroController controller =  new RegistroController();
+        try (Connection connection = ConexionBBDD.getConnection()) {     
+          
+           ConexionBBDD.executeUpdate(connection, "INSERT INTO registro_personas.mitabla (id, nombre, edad)values('1','Prueba1','23');");
+           
+           System.out.println("cerrar conexion "+ connection.isClosed());
            
        } catch(Exception e) {
-           System.out.println("hubo un error");
-       }        
+          e.printStackTrace();
+       }     
+
     }
 }

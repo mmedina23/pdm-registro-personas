@@ -27,5 +27,11 @@ public class ConexionBBDD {
         return statement.executeQuery(query);
     }
     
+     public static final void executeUpdate(Connection connection, String query) throws SQLException {
+        Statement statement = connection.createStatement();
+        
+         statement.executeUpdate(query);
+    }
+    
     
 }

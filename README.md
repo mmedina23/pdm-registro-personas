@@ -33,4 +33,20 @@ sql>
 
 ## query crear bd esquema y tablas
 
+````sql
+CREATE SCHEMA nombre_esquema AUTHORIZATION guest;
+
+CREATE TABLE nombre_esquema.Mi_Tabla (
+    ID INT PRIMARY KEY,
+    Nombre NVARCHAR(50),
+    Edad INT
+);
+````
+
+## acceder a la bd
+````shell
+PS D:\workSpaceInstNetbeas\pdm-registro-personas> java -cp C:\Users\maria\.m2\repository\com\h2database\h2\2.1.210\h2-2.1.210.jar org.h2.tools.Server
+
+````
+
 > [h2 database tutorial](https://h2database.com/html/tutorial.html)
